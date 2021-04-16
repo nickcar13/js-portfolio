@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -33,4 +34,16 @@ module.exports = {
       },
     ],
   },
+  //la creacion de los objetos con las configuraciones de los plugins
+  plugins: [
+    //genera el objeto de configuracion para html
+    new HtmlWebpackPlugin({
+      //inject nos habilita para que webpack pueda insertar informacion en el html
+      inject: true,
+      //template html a usar
+      template: './public/index.html',
+      //salida
+      filename: './index.html',
+    }),
+  ],
 };
