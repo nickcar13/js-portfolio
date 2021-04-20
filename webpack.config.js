@@ -62,15 +62,5 @@ module.exports = {
     }),
     //instancia de css
     new MiniCssExtractPlugin(),
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       //desde||donde estan los archivos
-    //       from: path.resolve(__dirname, 'src', 'assets/images'),
-    //       //hacia donde
-    //       to: 'assets/images',
-    //     },
-    //   ],
-    // }),
   ],
 };
