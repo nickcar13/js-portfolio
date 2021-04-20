@@ -47,6 +47,25 @@ module.exports = {
         test: /\.png/,
         type: 'asset/resource',
       },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            //limite del tamaño del archivo, si lo tiene o false si no es asi
+            limit: 10000,
+            //mimetipe el tipo de dato a usar
+            mimetype: 'application/font-woff',
+            //nombre del archivo de salida que respeta el nombre y ext original
+            name: '[name].[ext]',
+            //salida del archivo final
+            outputPath: './assets/fonts/',
+            //path publico
+            publicPath: './assets/fonts/',
+            esModule: false,
+          },
+        },
+      },
     ],
   },
   //la creacion de los objetos con las configuraciones de los plugins
