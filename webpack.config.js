@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -32,6 +33,13 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      //objeto de reglas para css
+      {
+        //test de archivos a usar
+        test: /\.css|.styl$/i,
+        //plugins a usar y loaders, aca se instanciaria los loades de los preprocesadores en caso de usarlos
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
+      },
     ],
   },
   //la creacion de los objetos con las configuraciones de los plugins
@@ -45,5 +53,7 @@ module.exports = {
       //salida
       filename: './index.html',
     }),
+    //instancia de css
+    new MiniCssExtractPlugin(),
   ],
 };
