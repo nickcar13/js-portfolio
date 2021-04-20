@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -55,5 +56,15 @@ module.exports = {
     }),
     //instancia de css
     new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          //desde||donde estan los archivos
+          from: path.resolve(__dirname, 'src', 'assets/images'),
+          //hacia donde
+          to: 'assets/images',
+        },
+      ],
+    }),
   ],
 };
