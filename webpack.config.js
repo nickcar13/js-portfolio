@@ -14,6 +14,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     //nombre del archivo de salida
     filename: 'main.js',
+    //salida del module de assets
+    assetModuleFilename: 'assets/images/[hash][ext]',
   },
   //extensiones a trabajar
   resolve: {
@@ -41,6 +43,10 @@ module.exports = {
         //plugins a usar y loaders, aca se instanciaria los loades de los preprocesadores en caso de usarlos
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
       },
+      {
+        test: /\.png/,
+        type: 'asset/resource',
+      },
     ],
   },
   //la creacion de los objetos con las configuraciones de los plugins
@@ -56,15 +62,15 @@ module.exports = {
     }),
     //instancia de css
     new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          //desde||donde estan los archivos
-          from: path.resolve(__dirname, 'src', 'assets/images'),
-          //hacia donde
-          to: 'assets/images',
-        },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       //desde||donde estan los archivos
+    //       from: path.resolve(__dirname, 'src', 'assets/images'),
+    //       //hacia donde
+    //       to: 'assets/images',
+    //     },
+    //   ],
+    // }),
   ],
 };
