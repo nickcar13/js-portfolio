@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -89,7 +90,13 @@ module.exports = {
     }),
     //instancia de css
     new MiniCssExtractPlugin({
+      //nombre de salida del archivo
       filename: 'assets/[name].[contenthash].css',
+    }),
+    //instancia de variables de entorno
+    new Dotenv({
+      //path donde encontrara el archivo
+      path: path.resolve(__dirname, '.env'),
     }),
   ],
   optimization: {
