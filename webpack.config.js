@@ -22,6 +22,12 @@ module.exports = {
   //extensiones a trabajar
   resolve: {
     extensions: ['.js'],
+    alias: {
+      '@utils': path.resolve(__dirname, 'src/utils/'),
+      '@templates': path.resolve(__dirname, 'src/templates/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@images': path.resolve(__dirname, 'src/assets/images/'),
+    },
   },
   //modulo para configurar otros paquetes en este caso babel
   module: {
@@ -62,8 +68,8 @@ module.exports = {
             name: '[name].[contenthash].[ext]',
             //salida del archivo final
             outputPath: './assets/fonts/',
-            //path publico
-            publicPath: './assets/fonts/',
+            //path a seguir desde css para encontrar las fonts en dist
+            publicPath: './fonts/',
             esModule: false,
           },
         },
