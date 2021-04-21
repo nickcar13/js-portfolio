@@ -82,4 +82,7 @@ module.exports = {
     //instancia de css
     new MiniCssExtractPlugin(),
   ],
+  optimization: {
+    minimize: true,
+  },
 };
