@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -97,6 +98,14 @@ module.exports = {
     new Dotenv({
       //path donde encontrara el archivo
       path: path.resolve(__dirname, '.env'),
+    }),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: true,
+      cleanOnceBeforeBuildPatterns: [
+        path.resolve(__dirname, 'dist/assets/*.css'),
+        path.resolve(__dirname, 'dist/*.js'),
+      ],
+      verbose: true,
     }),
   ],
   optimization: {
