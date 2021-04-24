@@ -19,6 +19,8 @@ module.exports = {
   },
   //indicando que modo es
   mode: 'development',
+  //iniciando el modo watch
+  watch: true,
   //extensiones a trabajar
   resolve: {
     extensions: ['.js'],
