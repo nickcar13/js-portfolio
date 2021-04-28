@@ -20,7 +20,7 @@ module.exports = {
   //indicando que modo es
   mode: 'development',
   //iniciando el modo watch
-  watch: true,
+  // watch: true,
   //extensiones a trabajar
   resolve: {
     extensions: ['.js'],
@@ -100,4 +100,11 @@ module.exports = {
       path: path.resolve(__dirname, '.env'),
     }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 3006,
+    open: true,
+  },
 };
