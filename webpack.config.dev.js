@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -99,6 +100,7 @@ module.exports = {
       //path donde encontrara el archivo
       path: path.resolve(__dirname, '.env'),
     }),
+    new BundleAnalyzerPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
