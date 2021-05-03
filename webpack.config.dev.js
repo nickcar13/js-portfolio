@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
 /** @type {import('webpack').Configuration} */
 //objeto de configuracion
@@ -20,6 +21,8 @@ module.exports = {
   },
   //indicando que modo es
   mode: 'development',
+  //devtools
+  devtool: 'source-map',
   //iniciando el modo watch
   // watch: true,
   //extensiones a trabajar
